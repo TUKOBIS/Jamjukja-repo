@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <link href="{{ url_for('static', filename='layout.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='result.css') }}" rel="stylesheet">
+
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <title>영화 정보</title>
+</head>
+<body>
+  <div class="wrap">
+    <section class="header">
+      <div class="btn_home">
+        <a href="/"><span>MOVIE INFO</span></a>
+      </div>
+
+      <div class="search_box">
+        <form method="get" action='/result' id="form_search">
+          <input type="image" id="img_search" alt="poster" onclick="return false" />
+          <input type="text" name="title" id='text_search' placeholder="영화명 입력" />
+          <input type="submit" id="btn_search" value="검색" />
+          <p class="arrow_box">영화를 선택해주세요.</p>
+        </form>
+      </div>
+    </section>
+
+    <section class="body">
+      <article class="first_row margin_wrap">
+        <div class="movie_image">
+          <img src="{{ movie['poster'] }}" alt="poster" />
+        </div>
+
+        <div class="movie_information">
+          <p>{{ movie['title'] }}</p>
+
+          <dl>
+            <div class="info_group">
+              <dt>제작년도</dt>
+              <dd>{{ movie['production_year'] }}</dd>
+            </div>
+            <div class="info_group">
+              <dt>개봉일</dt>
+              <dd>{{ movie['rel_date'] }}</dd>
+            </div>
+            <div class="info_group">
+              <dt>제작국가</dt>
+              <dd>{{ country['country'] }}</dd>
+            </div>
+            <div class="info_group">
+              <dt>장르</dt>
+              <dd>{{ genre['genre'] }}</dd>
+            </div>
+            <div class="info_group">
+              <dt>감독</dt>
+              <dd>{{ director['director'] }}</dd>
+            </div>
+            <div class="info_group">
+              <dt>배우</dt>
+              <dd>{{ actor['actor'] }}</dd>
+            </div>
+            <div class="info_group">
+              <dt>줄거리</dt>
+              <dd>{{ movie['summary'] }}</dd>
+            </div>
+          </dl>
+        </div>
+      </article>
+
+      <article class="second_row margin_wrap">
+        <div class="movie_information">
+{#          <p>이 영화의 순위 : {{ rel_year }}년도(개봉년도) 기준 {{ movie_count }}개 영화 중 {{ ranking }}위 입니다.</p>#}
+
+          <dl>
+{#            <div class="info_group">#}
+{#              <dt>평점</dt>#}
+{#              <dd>{{ movie_info['grade'] }}</dd>#}
+{#            </div>#}
+            <div class="info_group">
+              <dt>리뷰</dt>
+              {% for r in review['review'] %}
+              <dd>{{ r }}</dd>
+              <br/>
+              {% endfor %}
+            </div>
+          </dl>
+        </div>
+      </article>
+
+{#        <table>#}
+{#          <thead>#}
+{#            <tr>#}
+{#              <th colspan="2">{{ rel_year }}년 영화 순위</th>#}
+{#            </tr>#}
+{#          </thead>#}
+{##}
+{#          <tbody>#}
+{#            {% for index, row in ranking_by_rel_year.iterrows() %}#}
+{#              {% if index <= 9 %}#}
+{#                {% if row['title'] == movie_info['title'] %}#}
+{#                <tr class="highlight" onclick="location.href='/result?selected_movie={{ row['id'] }}'">#}
+{#                {% else %}#}
+{#                <tr onclick="location.href='/result?selected_movie={{ row['id'] }}'">#}
+{#                {% endif %}#}
+{#                  <td>{{ row['ranking'] }}</td>#}
+{#                  <td>{{ row['title'] }}</td>#}
+{#                </tr>#}
+{#              {% else %}#}
+{#                <tr>#}
+{#                  <td></td>#}
+{#                  <td>. . .</td>#}
+{#                </tr>#}
+{#                <tr class="highlight" onclick="location.href='/result?selected_movie={{ row['id'] }}'">#}
+{#                  <td>{{ row['ranking'] }}</td>#}
+{#                  <td>{{ row['title'] }}</td>#}
+{#                </tr>#}
+{#              {% endif %}#}
+{#            {% endfor %}#}
+{#          </tbody>#}
+{#        </table>#}
+{#      </article>#}
+
+{#      <article class="third_row margin_wrap">#}
+{#        <p>각 장르별 영화 순위</p>#}
+{##}
+{#        <div>#}
+{#          {% for genre, movies in ranking_by_genre.items() %}#}
+{#          <table>#}
+{#            <thead>#}
+{#              <tr>#}
+{#                <th colspan="2">{{ genre }} 순위</th>#}
+{#              </tr>#}
+{#            </thead>#}
+{##}
+{#            <tbody>#}
+{#              {% for index, row in movies.iterrows() %}#}
+{#              <tr onclick="location.href='/result?selected_movie={{ row['id'] }}'">#}
+{#                <td>{{ row['ranking'] }}</td>#}
+{#                <td>{{ row['title'] }}</td>#}
+{#              </tr>#}
+{#              {% endfor %}#}
+{#            </tbody>#}
+{#          </table>#}
+{#          {% endfor %}#}
+{#        </div>#}
+{#      </article>#}
+    </section>
+
+    <footer>
+    </footer>
+  </div>
+</body>
+</html>

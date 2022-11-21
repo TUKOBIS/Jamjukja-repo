@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>영화 평점</title>
+  <link href="{{ url_for('static', filename='stats.css') }}" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+  <div class="wrap">
+    <h1>영화 평점과 매출의 관계</h1>
+
+    <div class="graph margin_wrap">
+      <img src="{{ url_for('graph3') }}">
+    </div>
+  </div>
+</body>
+</html>

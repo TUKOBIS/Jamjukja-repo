@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>상영 횟수</title>
+  <link href="{{ url_for('static', filename='stats.css') }}" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+  <div class="wrap">
+    <h1>영화 상영횟수와 매출의 관계</h1>
+
+    <div class="graph margin_wrap">
+      <img src="{{ url_for('graph4') }}">
+    </div>
+  </div>
+</body>
+</html>

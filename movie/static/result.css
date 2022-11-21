@@ -1,0 +1,163 @@
+@charset "utf-8";
+
+.margin_wrap {margin: 60px 16% 0;}
+
+.header {
+	min-width: 1000px;
+	height: 90px;
+	position: fixed;
+	background-attachment: scroll;
+	background-position: left;
+	background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("/static/img/movie.jpg");
+	z-index: 1;
+	display: flex;
+	align-items: center;
+}
+.btn_home {
+	margin-top: 0;
+	white-space: nowrap;
+}
+.search_box {
+	width: auto;
+	display: inline-block;
+	margin-top: 0px;
+	margin-left: 40px;
+}
+.search_box form {
+	width: 420px;
+	height: 54px;
+	border-radius: 12px;
+}
+
+.arrow_box {
+	margin-left: 430px;
+	margin-top: 0;
+}
+.arrow_box:after {
+	display: none;
+}
+
+.body {
+	/* width: 100%;
+	display: flex;
+	justify-content: center;
+	flex-direction: column; */
+
+	padding-top: 90px;
+	min-width: 1000px;
+}
+
+
+.first_row {
+	display: flex;
+}
+
+.movie_image {
+	flex: 1;
+	min-width: 300px;
+	margin-right: 40px;
+}
+.movie_image img {
+	max-width: 100%;
+	height: auto;
+}
+
+.movie_information {
+	flex: 4;
+	min-width: 600px;
+}
+.movie_information p {
+	font-size: 26px;
+	font-weight: 600;
+	margin-bottom: 20px;
+}
+
+.movie_information .info_group {
+	position: relative;
+	line-height: 30px;
+	margin-bottom: 10px;
+}
+.movie_information .info_group dt {
+	font-size: 18px;
+	color: #696969;
+	float: left;
+}
+.movie_information .info_group dd {
+	font-size: 18px;
+	margin-left: 90px;
+}
+
+
+.second_row {
+	display: flex;
+	flex-wrap: nowrap;
+}
+.second_row .movie_information {
+	flex: 3;
+	margin-right: 30px;
+}
+.second_row .movie_information p {
+	font-size: 21px;
+	font-weight: 500;
+	margin-bottom: 26px;
+}
+.second_row table {
+	flex: 1;
+}
+
+
+.third_row {
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 100px;
+}
+.third_row p {
+	font-size: 24px;
+	font-weight: 500;
+	margin-bottom: 24px;
+}
+.third_row div {
+	display: flex;
+	flex-direction: row;
+	overflow: scroll;
+}
+.third_row div table {
+	margin-right: 14px;
+	margin-bottom: 24px;
+}
+
+
+table {
+	white-space: nowrap;
+	min-width: 300px;
+	height: 100%;
+	border-collapse: collapse;
+	border-radius: 10px;
+	overflow: hidden;
+}
+table thead tr {
+	line-height: 48px;
+	font-size: 17px;
+	color: #fff;
+	background-color: #545454;
+}
+table tbody tr {
+	line-height: 42px;
+}
+table tbody tr:hover {
+	cursor: pointer;
+	background-color: #F5F5F5;
+}
+table tbody tr td:nth-child(1) {
+	width: 14%;
+	text-align: center;
+	border-right: 1px solid #545454;
+}
+table tbody tr td:nth-child(2) {
+	padding-left: 12px;
+}
+
+table tbody tr.highlight td:nth-child(2) {
+	color: #ff5d48;
+	font-weight: 500;
+}

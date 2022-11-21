@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>영화 수요</title>
+  <link href="{{ url_for('static', filename='stats.css') }}" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+  <div class="wrap">
+    <h1>계절별 공포, 스릴러 영화 수요</h1>
+
+    <div class="graph margin_wrap">
+      <img src="{{ url_for('graph2') }}">
+    </div>
+  </div>
+</body>
+</html>
