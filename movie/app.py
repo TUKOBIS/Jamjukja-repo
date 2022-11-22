@@ -5,9 +5,8 @@ import pandas as pd
 import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
-import datetime as dt
 import platform
-import json
+
 
 app = Flask(__name__)
 
