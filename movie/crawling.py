@@ -12,7 +12,7 @@ import os
 # kobis 사이트에서 영화 정보(영화명, 제작국가, 개봉일, 장르, 포스터, 누적매출액, 누적관객수, 상영수) 크롤링
 movieinfo = []
 def kobis_crawling():
-    browser = webdriver.Chrome('/Users/chynmn/GitHub/TUKOBIS/flask-movie-info-web/movie/chromedriver')
+    browser = webdriver.Chrome('/Users/gosuke/Documents/GitHub/Jamjukja-repo/movie/chromedriver')
     browser.implicitly_wait(20)
     browser.get('https://www.kobis.or.kr/kobis/business/stat/boxs/findMonthlyBoxOfficeList.do')
 
@@ -291,7 +291,7 @@ create_index_table()
 # 크롤링으로 모은 데이터들 DB에 삽입
 def sql_insert():
     print("checkcheckehcke")
-    connect = pymysql.connect(user='root', passwd='1234', db='moviedb')
+    connect = pymysql.connect(user='root', passwd='Koh716sk*', db='moviedb')
     cursor = connect.cursor()
 
     query = "insert into movieinfo_tb(title, production_year, rel_date, countries, genres, directors, sales, audience, play, poster, grade, actors, summary, reviews) values (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"
