@@ -31,8 +31,5 @@ selenium 3.141.0
 
 
 ## Contributor
-Chynmn
-ohamin26
-Gosuke716
-Hoya463
+Chynmn          ohamin26          Gosuke716          Hoya463
 &nbsp;
