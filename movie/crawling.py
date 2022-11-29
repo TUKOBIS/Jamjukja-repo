@@ -12,7 +12,7 @@ import os
 # kobis 사이트에서 영화 정보(영화명, 제작국가, 개봉일, 장르, 포스터, 누적매출액, 누적관객수, 상영수) 크롤링
 movieinfo = []
 def kobis_crawling():
-    browser = webdriver.Chrome('/Users/chynmn/GitHub/TUKOBIS/flask-movie-info-web/movie/chromedriver')
+    browser = webdriver.Chrome('/Users/chynmn/GitHub/TUKOBIS/TUKOBIS_Movie/movie/chromedriver')
     browser.implicitly_wait(20)
     browser.get('https://www.kobis.or.kr/kobis/business/stat/boxs/findMonthlyBoxOfficeList.do')
 
