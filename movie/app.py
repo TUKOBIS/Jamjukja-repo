@@ -26,7 +26,7 @@ plt.rcParams['axes.unicode_minus'] = False
 @app.route('/')
 def index():
     try:
-        conn = pymysql.connect(user='root', passwd='1234', db='moviedb')
+        conn = pymysql.connect(user='root', passwd='Koh716sk*', db='moviedb')
     except:
         return redirect(url_for('_except', err = 'DB 연결 실패'))
     else:
@@ -46,7 +46,7 @@ def index():
 @app.route('/result', methods=['GET'])
 def result():
     try:
-        conn = pymysql.connect(user='root', passwd='1234', db='moviedb')
+        conn = pymysql.connect(user='root', passwd='Koh716sk*', db='moviedb')
     except:
         return redirect(url_for('_except', err = 'DB 연결 실패'))
     else:
@@ -102,7 +102,7 @@ def _except():
 @app.route('/graph1/')
 def graph1():
     try:
-        conn = pymysql.connect(user='root', passwd='1234', db='moviedb')
+        conn = pymysql.connect(user='root', passwd='Koh716sk*', db='moviedb')
 
         sql = """
         SELECT rel_date, sales
@@ -140,7 +140,7 @@ def stats1():
 @app.route('/graph2/')
 def graph2():
     try:
-        conn = pymysql.connect(user='root', passwd='1234', db='moviedb')
+        conn = pymysql.connect(user='root', passwd='Koh716sk*', db='moviedb')
 
         sql = """
         SELECT m.rel_date, m.audience
@@ -179,7 +179,7 @@ def stats2():
 @app.route('/graph3/')
 def graph3():
     try:
-        conn = pymysql.connect(user='root', passwd='1234', db='moviedb')
+        conn = pymysql.connect(user='root', passwd='Koh716sk*', db='moviedb')
 
         sql = """
         SELECT grade, sales
@@ -222,7 +222,7 @@ def stats3():
 @app.route('/graph4/')
 def graph4():
     try:
-        conn = pymysql.connect(user='root', passwd='1234', db='moviedb')
+        conn = pymysql.connect(user='root', passwd='Koh716sk*', db='moviedb')
 
         sql = """
         SELECT play, sales

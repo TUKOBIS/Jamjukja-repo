@@ -1,6 +1,5 @@
 # Movie Info Web
 ### 영화 관련 정보 제공 사이트
-(21.06.30 ~ 21.07.05)  
 &nbsp;
 
 ## Description
@@ -10,7 +9,7 @@
 &nbsp;  
 
 ## Environment
-anaconda 4.12.0  
+PyCharm 2022.2.2 (Professional Edition)
 python 3.9.12  
 mysql 8.0.27  
 flask 2.0.3  
