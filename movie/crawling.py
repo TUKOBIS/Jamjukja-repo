@@ -13,7 +13,7 @@ import os
 movieinfo = []
 def kobis_crawling():
     browser = webdriver.Chrome('/Users/chynmn/GitHub/TUKOBIS/TUKOBIS_Movie/movie/chromedriver')
-//    browser = webdriver.Chrome('/Users/gosuke/Documents/GitHub/Jamjukja-repo/movie/chromedriver')
+#    browser = webdriver.Chrome('/Users/gosuke/Documents/GitHub/Jamjukja-repo/movie/chromedriver')
 
     browser.implicitly_wait(20)
     browser.get('https://www.kobis.or.kr/kobis/business/stat/boxs/findMonthlyBoxOfficeList.do')
@@ -23,7 +23,7 @@ def kobis_crawling():
     last_month = today.month - 1
 
     # 현재년도부터 지난 10년 동안의 개봉 영화 수집
-    for y in range(current_year, current_year+1): # current_year : 원래 current_year 뒤에 -10있었음 ㅅㄱ
+    for y in range(current_year-10, current_year+1): # current_year : 원래 current_year 뒤에 -10있었음 ㅅㄱ
         # 연도 입력
         Select(browser.find_element(By.ID, 'sSearchYearFrom')).select_by_value(str(y))
         Select(browser.find_element(By.ID, 'sSearchYearTo')).select_by_value(str(y))
@@ -293,7 +293,7 @@ create_index_table()
 # 크롤링으로 모은 데이터들 DB에 삽입
 def sql_insert():
     print("checkcheckehcke")
-    connect = pymysql.connect(user='root', passwd='Koh716sk*', db='moviedb')
+    connect = pymysql.connect(user='root', passwd='1234', db='moviedb')
     cursor = connect.cursor()
 
     query = "insert into movieinfo_tb(title, production_year, rel_date, countries, genres, directors, sales, audience, play, poster, grade, actors, summary, reviews) values (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"
