@@ -1,88 +1,86 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ko">
-<head>
-  <meta charset="UTF-8">
-  <meta name="Generator" content="EditPlus®">
-  <meta name="Author" content="">
-  <meta name="Keywords" content="">
-  <meta name="Description" content="">
-  <link href="{{ url_for('static', filename='layout.css') }}" rel="stylesheet">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="Generator" content="EditPlus®" />
+    <meta name="Author" content="" />
+    <meta name="Keywords" content="" />
+    <meta name="Description" content="" />
+    <link
+      href="{{ url_for('static', filename='layout.css') }}"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+      integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N"
+      crossorigin="anonymous"
+    />
 
-  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <title>메인</title>
+  </head>
+  <body>
+    <div class="wrap">
+      <section class="header">
+        <div class="btn_home">
+          <a href="/"><span>TUKOBIS</span></a>
+        </div>
 
-  <title>메인</title>
-</head>
-<body>
-  <div class="wrap">
-    <section class="header">
-      <div class="btn_home">
-        <a href="/"><span>MOVIE INFO</span></a>
-      </div>
+        <div class="search_box">
+          <form method="get" action="/result" id="form_search">
+            <input
+              type="image"
+              id="img_search"
+              alt="poster"
+              onclick="return false"
+            />
+            <input
+              type="text"
+              name="title"
+              id="text_search"
+              placeholder="영화명 입력"
+            />
+            <input type="submit" id="btn_search" value="검색" />
+            <p class="arrow_box">영화를 선택해주세요.</p>
+          </form>
+        </div>
+      </section>
 
-      <div class="search_box">
-        <form method="get" action='/result' id="form_search">
-          <input type="image" id="img_search" alt="poster" onclick="return false" />
-          <input type="text" name="title" id='text_search' placeholder="영화명 입력" />
-          <input type="submit" id="btn_search" value="검색" />
-          <p class="arrow_box">영화를 선택해주세요.</p>
-        </form>
-      </div>
-    </section>
-
-    <section class="body">
-      <article class="movie_analysis margin_wrap">
-        <ul class="clearfix">
-          <div>
-            <li><a href="/stats1/"><p>코로나에 의한 영화 매출 동향</p></a></li>
-            <li><a href="/stats2/"><p>계절별 공포,스릴러 영화 수요</p></a></li>
-          </div>
-
-          <div>
-            <li><a href="/stats3/"><p>영화 평점과 매출액의 관계</p></a></li>
-            <li><a href="/stats4/"><p>영화 상영횟수와 매출액의 관계</p></a></li>
-          </div>
-        </ul>
-      </article>
-        <h2 class="text-center font-weight-bold" style="margin-top:100px">박스오피스 매출 순위</h2>
-        <div class="row row-cols-1 row-cols-md-3" style="margin-left:100px; margin-right:100px;">
-            {% for m in movie %}
-            <div class="col mb-4">
-                <div class="card">
-                  <img src="{{ m['poster'] }}" class="card-img-top" alt="poster">
-                  <div class="card-body">
-                    <h5 class="card-title font-weight-bold">{{ m['title'] }}</h5>
-                    <p class="card-text">
-                      <p class="font-weight-bold" >개봉일자</p>
-                      {{ m['rel_date'] }}
-                      <br/><br/>
-                      <p class="font-weight-bold" >매출액</p>
-                      {{ m['sales'] }} 원
-                      <br/><br/>
-                      <p class="font-weight-bold" >관객수</p>
-                      {{ m['audience'] }} 명
-                      <br/><br/>
-                      <p class="font-weight-bold" >평점</p>
-                      {{ m['grade'] }} 점
-                      <br/><br/>
-                      <p class="font-weight-bold">요약</p>
-                      {{ m['summary'] }}
-                    </p>
-                  </div>
-                </div>
+      <section class="body">
+        <article class="movie_analysis margin_wrap">
+          <ul class="clearfix">
+            <div>
+              <li>
+                <a href="/stats1/"><p>코로나에 의한 영화 매출 동향</p></a>
+              </li>
+              <li>
+                <a href="/stats2/"><p>계절별 공포,스릴러 영화 수요</p></a>
+              </li>
             </div>
-            {% endfor %}
-        </div>
-      <div class="movie_ad margin_wrap">
-        <div class="ad_1">
-          <img src="{{ url_for('static', filename='img/lotte.png') }}" alt=""/>
-        </div>
-      </div>
-    </section>
 
+            <div>
+              <li>
+                <a href="/stats3/"><p>영화 평점과 매출액의 관계</p></a>
+              </li>
+              <li>
+                <a href="/stats4/"><p>영화 상영횟수와 매출액의 관계</p></a>
+              </li>
+            </div>
+            <div>
+              <li>
+                <a href="/movie_ranking/"><p>박스오피스 매출 순위</p></a>
+              </li>
+              <li></li>
+            </div>
+          </ul>
+        </article>
+      </section>
 
-    <footer>
-    </footer>
-  </div>
-</body>
+      <footer></footer>
+    </div>
+  </body>
 </html>
