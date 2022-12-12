@@ -22,8 +22,8 @@ def kobis_crawling():
     current_year = today.year
     last_month = today.month - 1
 
-    # 현재년도부터 지난 10년 동안의 개봉 영화 수집
-    for y in range(current_year-10, current_year+1): # current_year : 원래 current_year 뒤에 -10있었음 ㅅㄱ
+    # 현재년도부터 지난 5년 동안의 개봉 영화 수집
+    for y in range(current_year-5, current_year+1): # current_year : 원래 current_year 뒤에 -10있었음 ㅅㄱ
         # 연도 입력
         Select(browser.find_element(By.ID, 'sSearchYearFrom')).select_by_value(str(y))
         Select(browser.find_element(By.ID, 'sSearchYearTo')).select_by_value(str(y))
