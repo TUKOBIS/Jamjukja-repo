@@ -26,7 +26,7 @@ plt.rcParams['axes.unicode_minus'] = False
 @app.route('/')
 def index():
     try:
-        conn = pymysql.connect(user='root', passwd='0000', db='moviedb')
+        conn = pymysql.connect(user='root', passwd='1234', db='moviedb')
     except:
         return redirect(url_for('_except', err='DB 연결 실패'))
     else:
@@ -47,7 +47,7 @@ def index():
 @app.route('/result', methods=['GET'])
 def result():
     try:
-        conn = pymysql.connect(user='root', passwd='0000', db='moviedb')
+        conn = pymysql.connect(user='root', passwd='1234', db='moviedb')
     except:
         return redirect(url_for('_except', err='DB 연결 실패'))
     else:
@@ -110,7 +110,7 @@ def _except():
 @app.route('/graph1/')
 def graph1():
     try:
-        conn = pymysql.connect(user='root', passwd='0000', db='moviedb')
+        conn = pymysql.connect(user='root', passwd='1234', db='moviedb')
 
         sql = """
         SELECT rel_date, sales
@@ -118,7 +118,9 @@ def graph1():
         """
         df = pd.read_sql(sql, con=conn)
         df['rel_date'] = pd.to_datetime(df['rel_date']).dt.year
+        print(df)
         stats = df.groupby('rel_date').mean()
+        print(stats)
 
         # 시각화
         fig = plt.figure()
@@ -148,7 +150,7 @@ def stats1():
 @app.route('/graph2/')
 def graph2():
     try:
-        conn = pymysql.connect(user='root', passwd='0000', db='moviedb')
+        conn = pymysql.connect(user='root', passwd='1234', db='moviedb')
 
         sql = """
         SELECT m.rel_date, m.audience
@@ -188,7 +190,7 @@ def stats2():
 @app.route('/graph3/')
 def graph3():
     try:
-        conn = pymysql.connect(user='root', passwd='0000', db='moviedb')
+        conn = pymysql.connect(user='root', passwd='1234', db='moviedb')
 
         sql = """
         SELECT grade, sales
@@ -232,7 +234,7 @@ def stats3():
 @app.route('/graph4/')
 def graph4():
     try:
-        conn = pymysql.connect(user='root', passwd='0000', db='moviedb')
+        conn = pymysql.connect(user='root', passwd='1234', db='moviedb')
 
         sql = """
         SELECT play, sales
@@ -276,7 +278,7 @@ def stats4():
 @app.route('/movie_ranking/')
 def movie_ranking():
     try:
-        conn = pymysql.connect(user='root', passwd='0000', db='moviedb')
+        conn = pymysql.connect(user='root', passwd='1234', db='moviedb')
     except:
         return redirect(url_for('_except', err='DB 연결 실패'))
     else:
