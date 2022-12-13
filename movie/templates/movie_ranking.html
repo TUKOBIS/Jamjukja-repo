@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="Generator" content="EditPlus®" />
+    <meta name="Author" content="" />
+    <meta name="Keywords" content="" />
+    <meta name="Description" content="" />
+    <title>매출 동향</title>
+    <link
+      href="{{ url_for('static', filename='stats.css') }}"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      rel="stylesheet"
+      href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+      integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N"
+      crossorigin="anonymous"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  </head>
+  <body>
+    <h2 class="text-center font-weight-bold" style="margin-top: 100px">
+      박스오피스 매출 순위
+    </h2>
+    <div
+      class="row row-cols-1 row-cols-md-3"
+      style="margin-left: 100px; margin-right: 100px"
+    >
+      {% for m in movie %}
+
+      <div class="col mb-4">
+        <div class="card">
+          <img src="{{ m['poster'] }}" class="card-img-top" alt="poster" />
+          <div class="card-body">
+            <h5 class="card-title font-weight-bold">{{ m['title'] }}</h5>
+            <p class="card-text"></p>
+            <p class="font-weight-bold">개봉일자</p>
+            {{ m['rel_date'] }}
+            <br /><br />
+            <p class="font-weight-bold">매출액</p>
+            {{ '{:,}'.format(m['sales']) }} 원
+            <br /><br />
+            <p class="font-weight-bold">관객수</p>
+            {{ '{:,}'.format(m['audience']) }} 명
+            <br /><br />
+            <p class="font-weight-bold">평점</p>
+            {{ m['grade'] }} 점
+            <br /><br />
+            <p>
+              <button
+                class="btn btn-primary"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#summary{{loop.index}}"
+                aria-expanded="false"
+                aria-controls="summary{{loop.index}}"
+              >
+                요약보기
+              </button>
+            </p>
+            <div class="collapse" id="summary{{loop.index}}">
+              <div class="card card-body">{{ m['summary'] }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
